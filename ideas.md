@@ -1278,6 +1278,171 @@ Source: [Sui Overflow 2026 winners](https://www.sui.io/blog/sui-overflow-2026-wi
 - **Why it can fail:** proving full training is extremely expensive; constrain the model and benchmark proving cost honestly before claiming scalability.
 - **Inspired by:** [SkyNet](https://github.com/mittal-parth/SkyNet).
 
+## Fahim Ahmed and Mardav Gandhi portfolio research
+
+### 74. Private Context Gateway — let AI use your files without receiving your files
+
+**One line:** A local gateway answers narrowly scoped questions from private files while applications receive citations and approved actions instead of the underlying documents.
+
+- **Pain:** every useful AI app wants the same high-risk permission: upload an entire drive, inbox, or knowledge base to someone else's server.
+- **Why the local privacy boundary is indispensable:** indexing, embeddings, retrieval, permissions, and model inference run on the user's device; an app receives only the minimum approved result.
+- **Showcase moment:** ask a cloud agent to find a tax receipt, prove the file never left the laptop, return a cited total, then block the same agent from an excluded folder.
+- **Why it can win:** it turns local AI from a standalone assistant into privacy infrastructure every other agent can integrate.
+- **Why it can fail:** “local” is meaningless if telemetry, cloud fallbacks, thumbnails, or crash reports leak content; ship a network monitor and explicit egress report.
+- **Inspired by:** the local indexing, semantic search, knowledge graph, approval-gated file actions, and “hide from AI” controls in [FilDOS](https://github.com/ahmedfahim21/FilDOS).
+
+### 75. Adaptive Tutor Canvas — the lesson changes shape when the learner struggles
+
+**One line:** An AI tutor generates the next explanation, diagram, simulation, or exercise as safe declarative UI based on the learner's exact misconception.
+
+- **Pain:** static courses give every learner the same screen, while chat tutors produce long answers without measuring mastery.
+- **Why generative UI is indispensable:** the model chooses from a sandboxed widget grammar, the learner interacts with the result, and an independent mastery engine decides what comes next.
+- **Showcase moment:** answer a concept check incorrectly, watch the lesson become an interactive visual analogy, then prove mastery with a different question.
+- **Why it can win:** adaptation is visible on screen rather than hidden inside a chat prompt.
+- **Why it can fail:** model-authored executable code is unsafe and self-grading is unreliable; render only reviewed components and grade objective work server-side.
+- **Inspired by:** the A2UI classroom, concept graph, spaced repetition, tutor memory, and source citations in [Learnify](https://github.com/ahmedfahim21/Learnify).
+
+### 76. Proof-of-Custody Locker — the parcel opens only when its physical and digital story agree
+
+**One line:** A package locker releases escrow only after RFID custody, device identity, recipient approval, and the onchain shipment record all match.
+
+- **Pain:** delivery marketplaces can record a status update but cannot prove the correct physical package reached the correct handoff point.
+- **Why hardware plus blockchain is indispensable:** signed device events bind the physical object to an escrow state shared by buyer, courier, merchant, and locker operator.
+- **Showcase moment:** scan the correct parcel and release payment, then swap its tag or open the wrong locker and watch the contract refuse settlement.
+- **Why it can win:** a real box, tag, lock, and adversarial failure make the demo memorable.
+- **Why it can fail:** an ordinary RFID tag can be cloned; use secure elements, nonce-based challenges, tamper evidence, and a clear lost-package dispute path.
+- **Inspired by:** the Raspberry Pi, RFID, mobile, web, and Sui custody workflow in [Box3](https://github.com/ahmedfahim21/Box3).
+
+### 77. Road-Safety Bond — safer driving lowers a live financial commitment
+
+**One line:** A driver posts a refundable bond whose release is determined by independently verified violations and privacy-preserving proof of improvement.
+
+- **Pain:** traffic fines arrive late and insurance discounts rely on opaque scoring that drivers cannot independently verify.
+- **Why blockchain and selective disclosure are indispensable:** the bond, violation commitments, appeal outcome, reward rules, and payout are auditable without publishing a driver's complete movement history.
+- **Showcase moment:** detect a red-light violation, increase the locked amount, submit a valid appeal, then prove thirty safe days and release a reward without revealing the route.
+- **Why it can win:** behavior, verification, privacy, and money form one visible closed loop.
+- **Why it can fail:** camera recognition cannot be treated as truth; evidence confidence, human appeals, device spoofing, and discriminatory enforcement must be addressed.
+- **Inspired by:** the camera-to-contract violation and driver reward loop in [Rule Zer0](https://github.com/ahmedfahim21/Rule-Zer0).
+
+### 78. Verified Introduction Market — agents buy outcomes, not scraped contact lists
+
+**One line:** Tell an agent who you need; it discovers candidates, explains each match, pays data tools per accepted result, and earns only when a consented introduction occurs.
+
+- **Pain:** outreach platforms charge for volume, incentivizing low-quality scraping and spam rather than relevant human connections.
+- **Why agent payments and receipts are indispensable:** discovery tools can price calls, the agent operates under a campaign budget, and an introduction receipt determines who gets paid.
+- **Showcase moment:** request three climate investors, watch the agent buy two specialized searches, reject weak matches, send one approved message, and settle only after a reply.
+- **Why it can win:** it gives agentic payments an understandable business outcome instead of a token-transfer demo.
+- **Why it can fail:** automated outreach can become industrialized spam; require provenance, user approval thresholds, contact suppression, and recipient consent.
+- **Inspired by:** multi-source discovery, candidate scoring, personalized messages, live agent events, and x402 payments in [OutreachAI](https://github.com/ahmedfahim21/Outreach).
+
+### 79. Portable Service Passport — reputation workers can carry and customers can challenge
+
+**One line:** Drivers, couriers, carers, and freelancers carry a portable reputation whose scores come only from verified jobs and whose disputes remain auditable.
+
+- **Pain:** a worker's reputation is trapped inside each marketplace, while public unverified reviews can be weaponized permanently.
+- **Why shared credentials are indispensable:** multiple platforms issue interaction proofs, workers selectively disclose aggregates, and neutral challenge decisions update the same portable history.
+- **Showcase moment:** import verified rides from two companies, prove a threshold rating to a third without exposing every review, then overturn a malicious rating through arbitration.
+- **Why it can win:** it fixes both platform lock-in and the obvious abuse problem in naive onchain review systems.
+- **Why it can fail:** permanent free-text reviews create privacy and defamation risk; store signed claims offchain, disclose aggregates selectively, and make appeals first-class.
+- **Inspired by:** the cross-platform service-worker reputation thesis and B2B onboarding flow in [Satch Protocol](https://github.com/marcdhi/Satch-Protocol).
+
+### 80. Proof-Carrying Crop Forecast — an insurance claim whose model and sensor evidence can be verified
+
+**One line:** Farm sensors produce a crop-risk forecast with a proof that an approved model evaluated committed readings, allowing an insurer to settle without trusting the analytics vendor.
+
+- **Pain:** farmers and insurers dispute whether sensor data was altered or a prediction model was changed after a loss.
+- **Why device identity, commitments, and verifiable ML are indispensable:** they bind the reading, model version, inference, coverage rule, and payout into one checkable claim.
+- **Showcase moment:** stream moisture readings, generate a drought warning and proof, automatically release a small parametric payout, then reject one forged sensor packet.
+- **Why it can win:** IoT, ML, ZK, and finance each perform a necessary role in a physical story.
+- **Why it can fail:** proving an inaccurate model proves only faithful execution; publish validation metrics, calibration history, sensor health, and an appeal route.
+- **Inspired by:** the NodeMCU sensors, decentralized storage, crop prediction, and ZKML direction in [Harveeco](https://github.com/marcdhi/harveeco).
+
+### 81. Executable Documentation Twin — documentation that fails when the code stops matching it
+
+**One line:** Generate a navigable explanation of a codebase, then continuously test every API example, dependency claim, diagram edge, and setup command against the repository.
+
+- **Pain:** generated documentation looks complete on day one and becomes confident fiction after the next refactor.
+- **Why code analysis plus verification is indispensable:** repository traversal and semantic clustering build the map, while executable checks determine whether every important claim remains true.
+- **Showcase moment:** change an endpoint, watch its documentation test fail, regenerate only the affected section, and produce a signed freshness report.
+- **Why it can win:** it attacks the main weakness of AI documentation—trust—not merely the writing labor.
+- **Why it can fail:** prose cannot all be executed; label verified, inferred, and human-authored claims separately instead of presenting one false confidence score.
+- **Inspired by:** whole-codebase traversal, long-file windowing, semantic clustering, and generated developer docs in [DoxifyAI](https://github.com/marcdhi/doxifyAI).
+
+### 82. Gameplay Story Engine — every match becomes a fan-owned episode
+
+**One line:** Upload a gameplay clip and receive an editable comic episode whose characters, items, and achievements are verified against the game before publication.
+
+- **Pain:** game studios need shareable user-generated stories, but ordinary clip feeds are repetitive and AI fan art loses provenance and game context.
+- **Why AI plus onchain provenance is indispensable:** multimodal generation creates the episode while signed game events establish which achievements and items are authentic and who owns the resulting edition.
+- **Showcase moment:** finish a boss fight, generate a four-panel episode, verify the rare item from game data, edit one panel, and mint a licensed collectible with automatic revenue splits.
+- **Why it can win:** the transformation is immediate, visual, social, and easy to demo.
+- **Why it can fail:** minting every image adds no value; rights, likeness, moderation, provenance, and studio-controlled remix licenses are the actual product.
+- **Inspired by:** gameplay-to-webtoon generation, game-linked profiles, and storybook collectibles in [Aptoon](https://github.com/marcdhi/Aptoon).
+
+### 83. Sensitive Health Agent Cooperative — specialist agents collaborate without pooling the patient record
+
+**One line:** Fitness, nutrition, injury, and recovery agents coordinate from user-approved encrypted facts while no single agent receives the full health history.
+
+- **Pain:** useful wellness guidance crosses multiple sensitive domains, but giving every agent the complete record multiplies privacy and safety risk.
+- **Why scoped encrypted memory is indispensable:** each specialist receives a minimal view, produces a signed recommendation, and a coordinator exposes conflicts without merging all raw data.
+- **Showcase moment:** import a run, let the injury agent privately flag risk, let the nutrition agent adapt the plan without seeing the diagnosis, and show the permission trace.
+- **Why it can win:** multi-agent orchestration demonstrates a real reason for privacy rather than hiding a payment for its own sake.
+- **Why it can fail:** this must not impersonate medical care; enforce scope, consent revocation, provenance, uncertainty, and clinician escalation.
+- **Inspired by:** Strava activity import, specialist fitness agents, indexed community data, and secure personal storage in [athl3te](https://github.com/ahmedfahim21/athl3te).
+
+### 84. Evidence Escrow — settle small disputes without letting an AI become the judge
+
+**One line:** Two parties escrow funds, commit evidence, and receive an AI-organized case file that an accountable human panel resolves under a precommitted rubric.
+
+- **Pain:** small digital disputes are too expensive for court and too consequential for an opaque platform moderator.
+- **Why escrow and commitments are indispensable:** the rules, evidence timestamps, panel assignment, stake, verdict, appeal, and release are fixed and auditable before judgment.
+- **Showcase moment:** dispute a freelance milestone, detect a contradictory document, present both sides symmetrically, issue a panel ruling, and release escrow with a complete audit trail.
+- **Why it can win:** it preserves the speed of AI case analysis without making the indefensible claim that a chatbot should deliver justice.
+- **Why it can fail:** biased evidence summarization can decide the case before the panel sees it; preserve originals, show citations, support recusals, and fund appeals.
+- **Inspired by:** the evidence, escrow, AI-lawyer, and onchain case workflow explored in [JusticeChain](https://github.com/marcdhi/JusticeChain), with final judgment deliberately removed from the model.
+
+## Build and documentation playbook observed in the two portfolios
+
+### What Fahim's strongest repositories do well
+
+1. **Lead with the product in one sentence.** [FilDOS](https://github.com/ahmedfahim21/FilDOS) says what it is, who owns the data, and where inference runs before listing the stack.
+2. **Explain the complete user journey.** [Aaroh](https://github.com/ahmedfahim21/Aaroh) walks through merchant onboarding, agent creation, autonomous shopping, payment, verification, and reputation in order.
+3. **Expose operational evidence.** Transaction links, deployed identities, manifests, demo video, downloadable agent logs, and live event streams make claims inspectable.
+4. **Document the repository as a system.** Mature work includes a path-by-path project map, environment templates, precise prerequisites, migrations, process ownership, and separate component READMEs.
+5. **Separate model creativity from trusted execution.** [Learnify](https://github.com/ahmedfahim21/Learnify) lets the model emit declarative UI but never execute arbitrary generated code; grading remains server-side.
+6. **Treat privacy as an architecture.** FilDOS documents local databases, on-device models, excluded paths, network boundaries, security policy, engineering architecture, IPC, data layer, testing, and contribution rules.
+
+### What Mardav's strongest repositories do well
+
+1. **Start from a visible human problem.** [Satch](https://github.com/marcdhi/Satch-Protocol), [Harveeco](https://github.com/marcdhi/harveeco), and [Aptoon](https://github.com/marcdhi/Aptoon) explain the broken workflow before naming sponsors.
+2. **Give every technology a job.** Hardware captures evidence, AI interprets it, storage preserves it, contracts settle it, and the interface exposes it.
+3. **Use diagrams and screenshots as proof of comprehension.** The better READMEs include system architecture, hardware schematics, contract structure, and the exact screens used in the demo.
+4. **Map sponsor integration to code.** Aptoon links the sponsor section directly to its Metaplex implementation rather than merely displaying logos.
+5. **Write down implementation status and challenges.** JusticeChain and Harveeco expose completed versus future work and integration difficulties, which is more credible than pretending the prototype is production-ready.
+6. **Keep setup close to each component.** Contracts, frontend, backend, firmware, tests, and environment examples have their own local instructions where the projects are maintained well.
+
+### What not to copy
+
+1. **Do not confuse breadth with completeness.** A README naming AI, IoT, ZK, cross-chain, NFTs, and five sponsors needs a live proof path for every claimed dependency.
+2. **Do not use a local or placeholder address as deployment evidence.** Link the correct network explorer, contract source, and at least one successful transaction.
+3. **Do not publish screenshots without a runnable path.** A judge needs a live URL or exact setup, seeded test data, expected result, and recovery instructions.
+4. **Do not leave broken demos, empty links, or one-line READMEs.** They make even good code look abandoned.
+5. **Do not let marketing language replace threat models and limitations.** “Secure,” “private,” “decentralized,” and “AI-powered” each need a concrete mechanism and residual-risk statement.
+6. **Do not dump secrets or personal contact details into setup docs.** Ship a redacted `.env.example`, secret scanner, and explicit key-management notes.
+
+### README order to reuse for future submissions
+
+1. One-line product explanation.
+2. The painful problem and target user.
+3. A 30-second “how it works” flow.
+4. Demo video, live app, contracts, transactions, and read-only evidence.
+5. Architecture diagram with trust boundaries.
+6. Sponsor technology mapped to exact code paths and why removal breaks the product.
+7. What is live, seeded, mocked, simplified, and future work.
+8. Repository map and precise local setup from a clean machine.
+9. Testing, failure recovery, security assumptions, and known limitations.
+10. Reusable SDK/API/contract surface, license, contribution guide, and team roles.
+
 ## Portfolio lessons worth preserving
 
 1. **Build the failure demo first.** “Allowed succeeds; forbidden fails” is more convincing than a happy-path dashboard.
