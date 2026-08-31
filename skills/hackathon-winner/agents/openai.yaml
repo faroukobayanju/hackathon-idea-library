@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hackathon Winner"
+  short_description: "Find, pressure-test, and ship standout ideas"
+  default_prompt: "Use $hackathon-winner to find and evaluate a standout idea for this hackathon."
