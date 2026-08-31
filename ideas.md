@@ -305,7 +305,7 @@ These concepts deliberately look beyond AI. Several are derived from strong mech
 - **Showcase moment:** Complete a weather- or venue-bound ritual, receive a credential, and unlock a benefit in a separate application.
 - **Winning edge:** It links an onchain primitive to a physical, visual action.
 - **Main risk:** GPS alone is trivial to spoof; combine bounded attesters, device signals, or privacy-preserving proximity proofs.
-- **Inspired by:** [Klock](https://github.com/winsznx/klock).
+- **Inspired by:** [Klock](https://github.com/winsznx/klock) and [Khoj](https://github.com/mittal-parth/Khoj), which makes a physical location the answer to each progressive clue.
 
 ### 8. Public Media Notary — community evidence for manipulated media
 
@@ -713,7 +713,7 @@ This section was added after reviewing all 290 public repositories visible acros
 - **Showcase moment:** Simulate 100 reciprocal obligations across ten participants and settle them with a handful of transfers.
 - **Why it can win:** The before/after transaction count and cost reduction are immediately measurable.
 - **Why it can fail:** Netting creates credit exposure; caps, expiry, dispute proofs, and insolvency handling must be first-class.
-- **Inspired by:** [Tally](https://github.com/winsznx/tally) and [FlowGuard](https://github.com/winsznx/flow-guard).
+- **Inspired by:** [Tally](https://github.com/winsznx/tally), [FlowGuard](https://github.com/winsznx/flow-guard), and [Cash Flow Minimiser](https://github.com/mittal-parth/Cash-Flow-Minmiser).
 
 ### 25. Healthcare Treatment Preflight — compare plans before touching a patient
 
@@ -1176,6 +1176,107 @@ Source: [Sui Overflow 2026 winners](https://www.sui.io/blog/sui-overflow-2026-wi
 - **Why it can win:** it creates accountable paid intelligence without publishing the alpha.
 - **Why it can fail:** timestamping garbage is still garbage; source identities, corroboration policy, and false-positive history must be auditable.
 - **Inspired by:** [Lolah](https://github.com/Cyano88/lolah).
+
+## Parth Mittal portfolio research
+
+### 65. Codebase City — spatial command center for agent-built software
+
+**One line:** Turn a repository into a living city where files are buildings, dependencies are streets, pull requests are parallel districts, and agent activity appears as construction in real time.
+
+- **Pain:** once several agents work concurrently, terminals and diffs make it almost impossible to see where work is concentrated, what changed, or when intervention is needed.
+- **Why the representation is indispensable:** directory structure, dependency edges, churn, diffs, permissions, session state, and cost are mapped into one persistent spatial model rather than decorated after the fact.
+- **Showcase moment:** dispatch two crews, watch cranes appear over edited files, sail to a pull-request city, and enforce read-only review at the tool layer.
+- **Why it can win:** it makes invisible agent work instantly understandable and visually unforgettable.
+- **Why it can fail:** a pretty city without accurate dependency mapping, permission enforcement, and actionable drill-down is only a screensaver.
+- **Inspired by:** Anthropic Push to Prod runner-up [Claude City](https://github.com/mittal-parth/claude-clan).
+
+### 66. Just-in-Time World Engine — the game builds the next room while you walk
+
+**One line:** Describe a world once; the engine generates its map, characters, interiors, dialogue, clues, and finale live while spatial prefetch keeps every door instant.
+
+- **Pain:** generative games usually stop at text adventures or make players wait at every generation boundary.
+- **Why the technology is indispensable:** generation supplies all visible assets at runtime, while the engine predicts likely movement and builds adjacent scenes in parallel.
+- **Showcase moment:** create an unseen setting, enter the first street, watch three rooms pre-build while walking, then open every door with no loading pause.
+- **Why it can win:** the model is visibly load-bearing and the “world appears around me” moment is extraordinary.
+- **Why it can fail:** unconstrained generation creates incoherent art and impossible maps; every generated scene needs walkability, style, and story validation.
+- **Inspired by:** Google DeepMind winner [Kahani](https://github.com/harshagw/kahani).
+
+### 67. Language Street — learn by completing missions with living characters
+
+**One line:** Practice a language by entering a simulated street and completing spoken social missions with characters who react, remember, and grade meaning separately from pronunciation.
+
+- **Pain:** language apps reward tapping translations but do not prepare learners to negotiate, apologize, ask directions, or recover from misunderstanding.
+- **Why the technology is indispensable:** low-latency speech recognition, character-specific dialogue, voice synthesis, and an independent mission grader create the real conversational pressure.
+- **Showcase moment:** buy an item from an impatient shopkeeper in the target language, recover from a mistake, and complete the mission without selecting a scripted answer.
+- **Why it can win:** anyone can understand and test the product within one minute.
+- **Why it can fail:** a chat model that silently lowers difficulty is not learning; publish the rubric and grade task completion independently of the speaking model.
+- **Inspired by:** Sarvam Epoch runner-up [Sadak](https://github.com/mittal-parth/sadak).
+
+### 68. Confidential Tool Mesh — remote agent tools whose operator cannot read the work
+
+**One line:** Select remote MCP tools in a few clicks and run their credentials, private documents, and cross-tool workflow inside an attested confidential environment.
+
+- **Pain:** remote agent tools need access to GitHub, Slack, runbooks, search, and API keys, giving the tool host a complete view of the organization's incident and credentials.
+- **Why confidential compute is indispensable:** the tool code and secrets execute inside an attested TEE; the hosting operator should be unable to inspect either.
+- **Showcase moment:** investigate a private incident across GitHub, Slack, and encrypted RAG, then verify the enclave measurement before accepting its summary.
+- **Why it can win:** it transforms MCP security from permission prompts into a verifiable execution boundary.
+- **Why it can fail:** TLS terminating outside the enclave, mutable tool images, or unverifiable logs silently breaks the guarantee.
+- **Inspired by:** [Kosh](https://github.com/mittal-parth/kosh-sdk).
+
+### 69. Stake-Backed Certification — every trust label has money and evidence behind it
+
+**One line:** Producers earn a certification when peers stake behind it, sensors publish evidence, and any buyer can challenge the claim through an independent inspector.
+
+- **Pain:** organic, ethical, sustainable, and origin labels are expensive to obtain yet difficult for consumers to verify.
+- **Why blockchain is indispensable:** sponsorship stakes, sensor commitments, random challenge assignment, inspector fees, slashing, and compensation require a shared tamper-evident process.
+- **Showcase moment:** scan a product QR, inspect its evidence, challenge a false harvest, and route the slashed sponsor stake to the buyer after independent review.
+- **Why it can win:** trust becomes an adversarially testable mechanism rather than a certificate image.
+- **Why it can fail:** sensors and inspectors remain attack surfaces; randomized assignment, equal decision fees, device identity, and appeal rules are mandatory.
+- **Inspired by:** [GreenTrust](https://github.com/mittal-parth/GreenTrust).
+
+### 70. Battery Liquidity Grid — EV batteries move before stations run empty
+
+**One line:** A shared battery-swap network forecasts local shortages, prices swaps, and coordinates verifiable rebalancing across independently operated stations.
+
+- **Pain:** battery-swap networks fail when charged inventory accumulates at quiet stations while high-demand stations run empty.
+- **Why blockchain is indispensable:** stations can belong to different operators while inventory claims, deposits, swaps, rewards, and rebalancing obligations remain jointly auditable.
+- **Showcase moment:** generate a demand spike, watch the system propose a truck route, move battery inventory, and prove each custody handoff.
+- **Why it can win:** it combines DePIN, AI, and a physical demonstration with an obvious utilization metric.
+- **Why it can fail:** an AI dashboard does not move batteries; the demo needs at least two instrumented lockers or convincing hardware twins with signed state.
+- **Inspired by:** [Vyan](https://github.com/mittal-parth/vyan).
+
+### 71. Scam Whisperer — a wearable second opinion during the call
+
+**One line:** A watch listens only when the user taps, streams the live conversation to a scam detector, and vibrates before the victim acts.
+
+- **Pain:** scam warnings arrive before or after a call, while social engineering succeeds in the pressured moment between hearing a lie and sending money.
+- **Why the form factor is indispensable:** the watch provides consent, audio capture, and a private haptic warning without forcing the caller to interrupt the conversation or use speakerphone.
+- **Showcase moment:** receive a realistic scam call, watch risk rise from the live transcript, and feel the watch alert at the exact coercive request.
+- **Why it can win:** the danger and intervention are visceral, real-time, and useful to non-technical users.
+- **Why it can fail:** false positives, recording laws, and cloud audio exposure are serious; default to explicit capture and perform as much processing locally as possible.
+- **Inspired by:** [Live Scam Call Detector](https://github.com/mittal-parth/ai-call-screening).
+
+### 72. Merchant-to-Agent Compiler — turn a catalogue into a machine-buyable store
+
+**One line:** Upload a product spreadsheet and payment address; receive a standards-compliant merchant server that any AI client can discover, shop, pay, and track in the buyer's language.
+
+- **Pain:** small merchants will be invisible to shopping agents because implementing discovery, inventory, checkout, consent, fulfillment, signatures, and idempotency is too difficult.
+- **Why the compiler is the product:** it converts ordinary merchant data into a tested protocol surface and hosted lifecycle rather than asking every shop to become an agent-infrastructure company.
+- **Showcase moment:** onboard a street vendor from CSV, discover the store from an unrelated chat client, order by voice in a local language, and pay through the merchant's existing rail.
+- **Why it can win:** “spreadsheet to AI storefront in sixty seconds” is a powerful, measurable demo.
+- **Why it can fail:** QR generation is not payment confirmation; reconciliation, inventory reservation, refunds, and merchant authentication must be real.
+- **Inspired by:** [Agentic Commerce](https://github.com/mittal-parth/agentic-commerce).
+
+### 73. Verifiable Training Swarm — distributed model training with proof per worker
+
+**One line:** Split a training job across untrusted machines and pay each worker only when a zero-knowledge proof verifies its assigned computation.
+
+- **Pain:** decentralized compute markets can prove a worker was online but struggle to prove it performed the requested training step correctly.
+- **Why ZK is indispensable:** a job-specific verifier checks the claimed model computation without trusting the worker or revealing private weights to peers.
+- **Showcase moment:** distribute epochs across three machines, submit one corrupted update, reject its proof, aggregate the valid weights, and pay only honest workers.
+- **Why it can win:** it turns “decentralized GPU marketplace” into a falsifiable computation protocol.
+- **Why it can fail:** proving full training is extremely expensive; constrain the model and benchmark proving cost honestly before claiming scalability.
+- **Inspired by:** [SkyNet](https://github.com/mittal-parth/SkyNet).
 
 ## Portfolio lessons worth preserving
 
