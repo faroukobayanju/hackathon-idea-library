@@ -977,6 +977,206 @@ Source: [Sui Overflow 2026 winners](https://www.sui.io/blog/sui-overflow-2026-wi
 - **Main risk:** lineage graphs go stale; fail closed when evidence is missing rather than inventing certainty.
 - **Source mechanics:** Mystiquemide/Threxa and mrnetwork0001/Radix.
 
+## DoraHacks, HackQuest, and agent-builder research
+
+### 47. Covenant Key — a private key that obeys a public life-event policy
+
+**One line:** A hardware-isolated signer releases inheritance, insurance, or recovery funds only after an onchain condition and veto window have completed.
+
+- **Pain:** inheritance and emergency payouts either depend on a custodian holding the key or expose a hot key that an operator can abuse.
+- **Why the technology is indispensable:** a TEE keeps the signing key secret while an onchain state machine—not an employee—decides when it can sign.
+- **Showcase moment:** simulate inactivity, arm the release, exercise the guardian veto, advance the timelock, and finally produce a destination-chain signature.
+- **Why it can win:** the dangerous authority visibly moves from a company to a verifiable policy.
+- **Why it can fail:** attestation and destination-chain proof must be real; a server that merely claims to use a TEE destroys the idea.
+- **Inspired by:** [Remnara Confidential Payouts](https://dorahacks.io/buidl/46718) and its [open-source implementation](https://github.com/BurstLabs/remnara-fcc).
+
+### 48. One-Signature Capital Plane — use one chain without learning the other
+
+**One line:** An XRP holder signs one familiar XRPL payment whose memo atomically authorizes minting, DeFi actions, gas sponsorship, and eventual exit on another chain.
+
+- **Pain:** cross-chain DeFi requires a second wallet, gas token, bridge, protocol UI, risk monitor, and manual exit path.
+- **Why the technology is indispensable:** a source-chain signature becomes a destination-chain proof; the committed calldata cannot be changed by the relayer.
+- **Showcase moment:** sign once in the source wallet, watch capital arrive and enter a position, then unwind back through the same interface.
+- **Why it can win:** it demonstrates chain abstraction as a real cryptographic flow rather than hidden custodial automation.
+- **Why it can fail:** if the backend can alter calls or custody funds, it is just a bridge concierge.
+- **Inspired by:** [Astryum](https://dorahacks.io/buidl/47534).
+
+### 49. Proof-of-Mandate Checkout — merchants verify the agent, not its identity
+
+**One line:** One merchant checkout accepts multiple agent-payment protocols but settles only when the funds and the agent's private spending mandate both pass verification.
+
+- **Pain:** merchants cannot integrate x402, ACP, AP2, and future agent rails separately—or trust that an autonomous buyer is authorized.
+- **Why the technology is indispensable:** zkTLS can prove the payer represents an eligible principal without revealing the principal, while signed limits bind the payment.
+- **Showcase moment:** send four protocol-shaped requests through one checkout; reject tainted funds and an over-budget mandate, then settle the valid payment.
+- **Why it can win:** the product answers the merchant's real question: not “can agents pay?” but “can I safely accept them?”
+- **Why it can fail:** normalization without independently verified mandates is only an API adapter.
+- **Inspired by:** [AllScale Agentic Commerce Gateway](https://dorahacks.io/buidl/46943) and [AgentVault](https://dorahacks.io/buidl/47869).
+
+### 50. Settlement Advance — finance a sale before the marketplace releases it
+
+**One line:** Advance working capital against a verified e-commerce receivable and recover repayment automatically at the platform-settlement layer.
+
+- **Pain:** merchants wait weeks for money from completed sales while needing cash now to replenish stock.
+- **Why blockchain is indispensable:** onchain liquidity, receivable commitments, risk data, repayment waterfall, and lender redemption share one auditable lifecycle.
+- **Showcase moment:** ingest a verified pending order, fund an advance, simulate Amazon-style settlement, deduct repayment at source, and return principal plus fee.
+- **Why it can win:** yield comes from a visible real-world cashflow rather than token emissions.
+- **Why it can fail:** underwriting is fiction unless the platform data and source-level repayment control are credible.
+- **Inspired by:** [Dow Protocol](https://dorahacks.io/buidl/45997).
+
+### 51. Royalty Graph — every remix executes its own rights
+
+**One line:** A creative work carries a versioned rights graph so every play, remix, model-generated derivative, and license splits revenue across its true lineage.
+
+- **Pain:** remix culture and generative media destroy attribution because rights are recorded in contracts and spreadsheets disconnected from usage.
+- **Why blockchain is indispensable:** immutable parent links and programmable splits let a derivative execute the rights of every ancestor automatically.
+- **Showcase moment:** create a song, remix it twice with different collaborators, play the latest version, and watch the full lineage receive its shares.
+- **Why it can win:** the rights graph—not another NFT—is the product.
+- **Why it can fail:** false lineage is worse than missing lineage; creation tools must capture provenance at generation time.
+- **Inspired by:** [MiuroAI](https://dorahacks.io/buidl/46137) and [LoreSync](https://www.hackquest.io/projects/LoreSync).
+
+### 52. Fulfillment Mandate — agents may buy only the exact real-world outcome approved
+
+**One line:** A user approves an outcome, ceiling, vendor, dates, and delivery condition; the agent can pay only inside that mandate and settlement completes only after fulfillment proof.
+
+- **Pain:** approving an agent's wallet is too broad, while manually approving every click removes the value of automation.
+- **Why the technology is indispensable:** a signed mandate binds intent to payment, and an independently recomputable receipt binds payment to delivery.
+- **Showcase moment:** turn a travel reel or household request into a quote, approve the constraints, execute payment, and reject a substituted vendor or amount.
+- **Why it can win:** it turns agent commerce from “bot sent crypto” into a complete consumer-protection workflow.
+- **Why it can fail:** mocked fulfillment must be labeled; the payment rail alone cannot prove a hotel room, bill, or physical good was delivered.
+- **Inspired by:** [Astrail](https://dorahacks.io/buidl/46735) and [Pocket Concierge](https://github.com/Cyano88/pocket-concierge).
+
+### 53. Never-Dark Meter — an autonomous reserve for essential utilities
+
+**One line:** A household reserve earns yield while idle and automatically buys electricity, water, connectivity, or medicine before the essential service runs out.
+
+- **Pain:** prepaid utilities fail at the worst time even when a household has savings elsewhere.
+- **Why blockchain is indispensable:** a non-custodial policy wallet can earn, cap, withdraw, convert, pay, and leave a verifiable receipt across providers.
+- **Showcase moment:** drain a meter twin below its threshold, run the spending policy, withdraw the exact reserve, buy a top-up, and restore service.
+- **Why it can win:** the user benefit is human, urgent, and visible in seconds.
+- **Why it can fail:** do not fake utility-provider fulfillment; integrate one real sandbox or clearly separate the digital twin from the live payment.
+- **Inspired by:** [Utility Guardian](https://github.com/Cyano88/utility-guardian).
+
+### 54. Agreement Upfront — finance service work without financing the freelancer blindly
+
+**One line:** Turn a funded service agreement into a bounded advance only after evidence scoring, deterministic policy, signed offer verification, and protected repayment routing.
+
+- **Pain:** freelancers and small service firms need cash before delivery, but lenders cannot safely underwrite an informal promise.
+- **Why blockchain is indispensable:** the agreement commitment, escrow, advance bounds, delivery decision, repayment recipient, and release evidence can be bound across the lifecycle.
+- **Showcase moment:** fund a milestone agreement, score its evidence, escalate a weak draft, advance an approved one, then repay from accepted delivery.
+- **Why it can win:** it converts escrow from passive protection into productive working capital.
+- **Why it can fail:** the AI must provide evidence, never make the final lending decision; deterministic policy must own approve/escalate/block.
+- **Inspired by:** [HashPayStream](https://github.com/Cyano88/hashpaystream).
+
+### 55. Audit Passport — every security verdict becomes a permanent agent track record
+
+**One line:** An autonomous auditor runs deterministic tools, cites every AI adjustment, computes a reproducible score, and anchors the report under its onchain identity.
+
+- **Pain:** an “AI audit” is usually an unverifiable chat response with no durable accountability when it misses something.
+- **Why blockchain is indispensable:** the target hash, report hash, deterministic score, agent identity, and third-party feedback form a tamper-evident performance history.
+- **Showcase moment:** audit a vulnerable contract, independently recompute the score, inspect the anchored report, then compare the agent's past accuracy.
+- **Why it can win:** the agent is accountable for a falsifiable professional output, not rewarded for sounding confident.
+- **Why it can fail:** never convert tool failure into a clean bill of health; incomplete evidence must produce an explicit incomplete verdict.
+- **Inspired by:** Grand Champion [Conatus](https://github.com/RECTOR-LABS/conatus) and [RECTOR's documented results](https://rectorspace.com/).
+
+### 56. Signal Seismograph — detect market narratives before they become slogans
+
+**One line:** Fuse onchain activity, developer commits, market movement, and trusted social sources into reproducible anomaly clusters and product opportunities.
+
+- **Pain:** trend tools repeat whatever is already loud, while builders and investors need the earliest cross-domain evidence of a real shift.
+- **Why the product needs specialized infrastructure:** time-aligned signals, source identity pinning, anomaly baselines, clustering, and durable evidence are the value—not an LLM summary.
+- **Showcase moment:** replay a historical narrative, reveal each contributing signal in time order, and show where the system crossed its alert threshold.
+- **Why it can win:** it makes “alpha” auditable and can generate both investment alerts and build ideas.
+- **Why it can fail:** backtests invite hindsight bias; publish frozen thresholds and include narratives the system correctly ignored.
+- **Inspired by:** [SOLIS](https://github.com/RECTOR-LABS/solis), Cyano88/Lolah, Leadpoet, and Clawby.
+
+### 57. Acceptance-Gate Factory — tests are written before agents are allowed to build
+
+**One line:** A software factory writes a failing acceptance gate first, lets bounded agents work in named phases, and accepts output only when deterministic evidence turns the gate green.
+
+- **Pain:** coding agents can produce a plausible patch and a persuasive explanation while silently missing the requested outcome.
+- **Why the architecture is indispensable:** deterministic code owns sequencing, retries, traces, and acceptance; models are replaceable workers inside the graph.
+- **Showcase moment:** baseline the red gate, let competing models propose fixes, reject two false claims, and accept the first artifact that passes independently.
+- **Why it can win:** it demonstrates reliable agent engineering instead of a more charismatic coding chatbot.
+- **Why it can fail:** agent-written tests can collude with agent-written code; acceptance gates must come from a separate authority or trusted fixture.
+- **Inspired by:** [Super Simple Software Factory](https://github.com/disler/super-simple-software-factory), [Fusion Harness](https://github.com/disler/fusion-harness), and [Pi Verifier Agent](https://github.com/disler/the-verifier-agent).
+
+### 58. Agent Safety Kernel — capabilities that remain safe even when the prompt is hostile
+
+**One line:** A local policy kernel intercepts every agent tool call and enforces protected paths, no-delete zones, transaction ceilings, network allowlists, and human-only operations.
+
+- **Pain:** prompt instructions are not security boundaries; one poisoned page or mistaken command can delete files, expose secrets, or spend money.
+- **Why the product needs a kernel:** enforcement happens outside the model before the tool executes, so persuasion and prompt injection cannot waive the rule.
+- **Showcase moment:** attack the agent through an untrusted webpage, watch the model attempt the action, and show the kernel block it while safe work continues.
+- **Why it can win:** the failure and defense are both immediate and understandable.
+- **Why it can fail:** regex command blocking is brittle; normalize operations and enforce at the capability/API layer.
+- **Inspired by:** [Claude Code Damage Control](https://github.com/disler/claude-code-damage-control) and [Bowser](https://github.com/disler/bowser).
+
+### 59. Invisible Shield Entry — private deposits that look like ordinary transfers
+
+**One line:** Send assets to a one-time address that cryptographically becomes a private balance on any supported chain without exposing a recognizable pool deposit.
+
+- **Pain:** privacy pools hide later spending while the initial deposit still reveals the user, asset, amount, timing, and pool TVL.
+- **Why ZK is indispensable:** the one-time address commits secret values that authorize a shielded note without publishing the link between sender and private owner.
+- **Showcase moment:** compare a normal privacy-pool deposit with an ordinary-looking transfer, then privately spend the resulting cross-chain balance.
+- **Why it can win:** it attacks metadata leakage at the privacy system's front door.
+- **Why it can fail:** anonymity claims require rigorous cryptanalysis; timing, denomination, and bridge events can reintroduce linkability.
+- **Inspired by:** [Isekai](https://www.hackquest.io/projects/Arbitrum-Open-House-NYC-Founder-House-Isekai).
+
+### 60. Sovereign Agent Capsule — a personal assistant whose memory, tools, and automations live with the user
+
+**One line:** A local-first assistant runs persistent memory, terminal tools, mini-apps, and scheduled work on the user's machine while buying decentralized compute only when needed.
+
+- **Pain:** useful assistants accumulate a person's files, credentials, routines, and history inside a vendor account that can inspect or revoke them.
+- **Why the architecture matters:** local execution and user-owned encrypted state make privacy and continuity real; decentralized compute is an optional burst layer, not the owner of memory.
+- **Showcase moment:** disconnect the cloud service, continue a scheduled workflow locally, then purchase one remote compute job without exporting the private memory store.
+- **Why it can win:** it makes “your AI” literal and demonstrates a complete daily workflow rather than a chat window.
+- **Why it can fail:** local-first products become setup-heavy; installation, backup, permission review, and recovery are core product surfaces.
+- **Inspired by:** [Ghast AI](https://www.hackquest.io/projects/Ghast-AI) and Disler's private-first agent tooling.
+
+### 61. Confidential Compliance Receipt — prove a payment passed audit without exposing it
+
+**One line:** A TEE checks private payment records and publishes only a verifiable compliance result that auditors, banks, and contracts can consume.
+
+- **Pain:** financial systems must prove sanctions, limit, and policy checks but putting counterparties and amounts onchain destroys confidentiality.
+- **Why confidential compute is indispensable:** raw records remain inside an attested environment while the output is tied cryptographically to known verification code.
+- **Showcase moment:** evaluate two hidden payments, reveal only pass/fail and policy version, and let an onchain contract act on the valid proof.
+- **Why it can win:** it reconciles auditability with commercial privacy instead of choosing one.
+- **Why it can fail:** a binary proof can hide biased rules; the policy version, issuer, revocation state, and appeal path must remain visible.
+- **Inspired by:** [Provn Confidential Payments](https://dorahacks.io/buidl/46720/milestones).
+
+### 62. Yield-Fed Agent — an autonomous worker that finances its own operating costs
+
+**One line:** Endow an agent with productive capital whose earned yield automatically refuels gas and pays bounded operating expenses.
+
+- **Pain:** supposedly autonomous agents stop whenever a human forgets to refill their wallet.
+- **Why blockchain is indispensable:** the endowment, yield, profitability threshold, harvest, conversion, and refuel are programmable and independently observable.
+- **Showcase moment:** drain the agent below its gas threshold, harvest earned fees, reject an unprofitable refuel, then complete a profitable one and resume work.
+- **Why it can win:** autonomy becomes an economic loop rather than a scheduled server task.
+- **Why it can fail:** moving principal disguised as “yield” invalidates the model; accounting must prove the endowment remains intact.
+- **Inspired by:** [O2 Onchain Oxygen](https://github.com/Cyano88/O2-Onchain-Oxygen), strengthened to require a real end-to-end yield harvest rather than an architectural placeholder.
+
+### 63. Regulated Asset Autopilot — agent execution with enforceable session limits
+
+**One line:** A financial copilot analyzes tokenized stocks and can execute only through expiring session keys constrained by assets, size, frequency, and loss limits.
+
+- **Pain:** a read-only copilot is tedious, but giving an AI unrestricted control of an investment wallet is reckless.
+- **Why account abstraction is indispensable:** delegated session permissions make automation enforceable at execution time instead of relying on a prompt promise.
+- **Showcase moment:** ask the agent to rebalance, execute a permitted trade, then watch the wallet reject an oversized or unapproved asset order.
+- **Why it can win:** it connects useful portfolio work to a concrete safety primitive while the user retains final control.
+- **Why it can fail:** “non-custodial” is not sufficient if the session scope is broad or revocation is slow.
+- **Inspired by:** Sarf/ManagerX, an X Layer third-place product using EIP-7702 session keys for tokenized assets.
+
+### 64. Private Signal Subscription — sell time-sensitive intelligence without leaking buyers or the signal
+
+**One line:** Analysts anchor a time-windowed commitment to a verified signal batch while subscribers receive private, recipient-bound alerts that can later be audited.
+
+- **Pain:** public alerts destroy their own value, while centralized private feeds can fabricate history or leak subscriber strategy.
+- **Why blockchain and privacy are indispensable:** commitments prove the signal existed before the market moved; private delivery protects the content and subscriber graph.
+- **Showcase moment:** commit a hidden alert, deliver it to one authorized subscriber, reveal it after expiry, and prove it matches the earlier root.
+- **Why it can win:** it creates accountable paid intelligence without publishing the alpha.
+- **Why it can fail:** timestamping garbage is still garbage; source identities, corroboration policy, and false-positive history must be auditable.
+- **Inspired by:** [Lolah](https://github.com/Cyano88/lolah).
+
 ## Portfolio lessons worth preserving
 
 1. **Build the failure demo first.** “Allowed succeeds; forbidden fails” is more convincing than a happy-path dashboard.
